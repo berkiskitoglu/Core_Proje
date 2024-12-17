@@ -1,0 +1,67 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolio>
+
+<div class="row">
+    <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Bütçe Geçmişi</h4>
+                <canvas id="transaction-history" class="transaction-chart"></canvas>
+                <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                    <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Proje Ödemeleri</h6>
+                        <p class="text-muted mb-0">4 Aralık 2024, 09:45</p>
+                    </div>
+                    <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0">₺12450</h6>
+                    </div>
+                </div>
+                <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                    <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Reklam Gelirleri</h6>
+                        <p class="text-muted mb-0">1 Aralık 2024, 15:30</p>
+                    </div>
+                    <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0">₺3000</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row justify-content-between">
+                    <h4 class="card-title mb-1">Son Projelerim</h4>
+                    <p class="text-muted mb-1">Proje Durumlarım</p>
+                </div>
+                <div class="row">
+
+                    <div class="col-12">
+                        @foreach (var item in Model)
+                        {
+                            <div class="preview-list">
+                                <div class="preview-item border-bottom">
+                                    <div class="preview-thumbnail">
+                                        <img src="@item.Platform" alt="Platform"/>
+                                    </div>
+                                    <div class="preview-item-content d-sm-flex flex-grow">
+                                        <div class="flex-grow">
+                                            <h6 class="preview-subject">@item.Name</h6>
+                                            <p class="text-muted mb-0">Proje Fiyatı : @item.Price</p>
+                                        </div>
+                                        <div class="mr-auto text-sm-right pt-2 pt-sm-0">
+                                            <p class="text-muted mb-0">Tamamlanma Oranı 100/@item.Value </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

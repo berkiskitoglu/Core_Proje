@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+
+    @await Component.InvokeAsync("FeatureStatistics")
+    @await Component.InvokeAsync("OpenProject")
+    @await Component.InvokeAsync("StatisticsDashboard2")
+    @await Component.InvokeAsync("ProjectList")
+    @await Component.InvokeAsync("MessageList")
+    @await Component.InvokeAsync("VisitorMap")
+                    
+                    
+                    
+                    
+               
+            
+   
+</body>
+</html>

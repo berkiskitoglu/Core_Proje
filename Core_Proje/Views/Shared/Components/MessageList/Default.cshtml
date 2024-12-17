@@ -1,0 +1,56 @@
+﻿@using EntityLayer.Concrete
+@model List<Message>
+<div class="row">
+    <div class="col-md-6 col-xl-4 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row justify-content-between">
+                    <h4 class="card-title">Mesajlar</h4>
+                    <p class="text-muted mb-1 small">Tümünü Görüntüle</p>
+                </div>
+
+
+                @{
+                    // Resim yollarını içeren bir liste oluşturun
+                    var imagePaths = new List<string>
+                {
+                "~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/images/faces/face1.jpg",
+                "~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/images/faces/face2.jpg",
+                "~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/images/faces/face3.jpg",
+                "~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/images/faces/face4.jpg"
+                };
+
+                    int index = 0; // Resim sırasını takip etmek için bir değişken
+                }
+
+                <div class="preview-list">
+                    @foreach (var item in Model)
+                    {
+                        // Resim listesinden sıradaki resmi al
+                        var imageUrl = imagePaths[index % imagePaths.Count];
+                        index++; // Index'i bir arttırarak sıradaki resmi seç
+
+                        <div class="preview-item border-bottom">
+                            <div class="preview-thumbnail">
+                                <img src="@Url.Content(imageUrl)" alt="image" class="rounded-circle" />
+                            </div>
+                            <div class="preview-item-content d-flex flex-grow">
+                                <div class="flex-grow">
+                                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                        <h6 class="preview-subject">@item.Name</h6>
+                                        <p class="text-muted text-small">@item.Date.ToShortDateString()</p>
+                                    </div>
+                                    <p class="text-muted">@item.Content.Substring(0,30)...</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    @await Component.InvokeAsync("SlideList")
+    @await Component.InvokeAsync("ToDoListPanel")
+
+    
+</div>

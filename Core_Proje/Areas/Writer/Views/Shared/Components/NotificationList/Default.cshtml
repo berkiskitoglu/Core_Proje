@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<Announcement>
+@{
+    string color = "";
+}
+<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+    <p class="mb-0 font-weight-normal float-left dropdown-header">Bildirimler</p>
+    @foreach (var item in Model)
+    {
+        if (item.Status == "Yeni Yazı")
+        {
+            color = "preview-icon bg-success";
+        }
+        if (item.Status == "Yeni Video")
+        {
+            color = "preview-icon bg-warning";
+        }
+        if (item.Status == "Konferans")
+        {
+            color = "preview-icon bg-info";
+        }
+        if (item.Status == "Bootcamp")
+        {
+            color = "preview-icon bg-primary";
+        }
+        if (item.Status == "Workshop")
+        {
+            color = "preview-icon bg-danger";
+        }
+        <a class="dropdown-item preview-item" href="/Writer/Default/AnnouncementDetails/@item.AnnouncementID">
+            <div class="preview-thumbnail">
+                <div class="@color">
+                    <i class="ti-info-alt mx-0"></i>
+                </div>
+            </div>
+            <div class="preview-item-content">
+                <h6 class="preview-subject font-weight-normal">@item.Title</h6>
+                <p class="font-weight-light small-text mb-0 text-muted">
+                    @item.Status
+                </p>
+            </div>
+        </a>
+    }
+
+    
+    
+</div>
