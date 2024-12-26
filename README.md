@@ -1,4 +1,4 @@
-## 🌐 ASP.NET Core 8.0 ile Portföy ve Yönetim Paneli Projesi
+## 🌐 ASP.NET Core 6.0 ile Portföy ve Yönetim Paneli Projesi
 ### Bu proje, ASP.NET Core 8.0 kullanılarak N Katmanlı Mimari prensipleri ile geliştirilmiş, iki ana modülden oluşan modern bir web uygulamasıdır.
 
 ### ✅ Portföy Sayfası:
